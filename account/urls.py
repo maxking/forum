@@ -8,10 +8,11 @@ from wiki.account.views import *
 
 urlpatterns = patterns('',
      (r'^$',index),
+     (r'^signupform/?$',signupform),
      (r'^signup/?$',signup),
      (r'^logout/?$',logout),
      (r'^settings/?',settings),
-     (r'^sucess/$',sucess),
+     (r'^home/$',home),
     # Examples:
     # url(r'^$', 'wiki.views.home', name='home'),
     # url(r'^wiki/', include('wiki.foo.urls')),

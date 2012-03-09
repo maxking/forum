@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block head %}
+<title>Home - {{ fname }}</title>
+{% endblock %}
+
+{% block content %}
+<h1>{{ fname }} {{ lname }}</h1>
+<table>
+<tr><td>Email<td>{{ email }}
+<tr><td>Gender<td>{{ sex }}
+<tr><td>Phone<td>{{ phno }}
+</table>
+{% endblock %}

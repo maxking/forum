@@ -1,0 +1,9 @@
+<html>
+  <head>
+    <title>Sucess</title>
+  </head>
+  <body>
+    Succesfully registered{{ email }}.
+   <a href="/account/logout/">logout</a>
+  </body>
+</html>

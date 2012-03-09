@@ -13,6 +13,7 @@ class SignupForm(forms.Form):
     phno=forms.IntegerField(label='Phone Number')
     pin=forms.CharField(max_length=10)
     website=forms.URLField()
+#    image=forms.FileField(label='Display Image', help_text='maximum 3MB' upload_to=)
     def clean(self):
         data=self.cleaned_data
         try:

@@ -11,6 +11,6 @@ class person(models.Model):
     phno=models.CharField(max_length=10, verbose_name='phone-number')
     pin=models.CharField(max_length=10)
     website=models.URLField(verify_exists=True, null=True , blank=True)
-
+#    image=models.FileField( upload_to ='documents/%Y/%m/%d' )
     def __unicode__(self):
         return "%s %s" %(self.first_name, self.last_name)

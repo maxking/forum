@@ -11,21 +11,9 @@
 </style>
 {% endblock %}
 {% block content %}
-<table cellspacing=0 cellpadding=0 border=0 class=page style="border-top:1px dotted #888888; ">
-    <tr valign=top><td style="background-color:#eeeeff;padding-left:13px;">
+<table cellspacing=5px cellpadding=5px border=0 class=page style="border:1px dotted #888888;width:300px;height:200px;margin:auto;margin-top:10%; ">
+    <tr valign=top><td style="background-color:#eeeeff;width:300px;margin:auto;">
 	<h2 style="font-family:sans;font-size:14pt;font-weight:bold;color:#444444">Login...</h2>
-<form method=post action="/account/">
-<table cellspacing=0 cellpadding=2 border=0 style="font-family:sans;font-size:10pt;">
-	{% if bad %}
-	<tr><td colspan=2 style="background-color:#ff9999"> Please enter a valid user name </td></tr>
-	{% endif %}
-        {% for element in login_form %}
-	    <tr><td  {% if element.errors %}class=error {% endif %}>{{ element.label_tag }}</td><td  {% if element.errors %}class=error {% endif %}>{{ element }}</td><td  {% if element.errors %}class=error {% endif %}>{{element.errors.as_text}}</td></tr>
-        {% endfor %}
-        <tr><td colspan=2><input type="submit" value="Login">&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" value="Clear"></td></tr>
-</table>
-</form>
-</td>
 <td style="padding-left:20px;border-left:1px dotted #888888 ">
 	<h2 style="font-family:sans;font-size:14pt;font-weight:bold;color:#444444">Or Register with us...</h2>
 <form method="POST" action="/account/signup/">
