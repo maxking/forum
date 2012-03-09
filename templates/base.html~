@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+    <head>
+ {% block meta-content %}    
+
+{% endblock %}
+
+       <title>Wiki </title>
+ 
+        {% block head %}{% endblock %}
+    </head>
+    <body>
+        <div id="tab_wrapper" class=wrapper>
+            <div id="top_nav" class=page>
+                <div id=logo> <a href="/"><img style="border:0;" src="/site_media/im/logo.png"></a></div>
+                <div id=login_links>
+                    {% if logged %}
+                    <span class=user>{{ user }}</span>|
+                    <a href="/account/logout" class=topTab>Logout</a>|<a href="/account/" class=topTab>Settings</a>
+                    {% else %}
+                    <a href="/account/" class=topTab>Login</a>|<a href="/account/signup" class=topTab>Register</a>
+                    {% endif %}
+                </div>
+                <div id=tabs>
+                    {% for tab in tabsList %}
+                    <a onmouseover="javascript:showMenu('{{ tab.url}}')" id="{{ tab.url }}" href="/{{ tab.url }}/" class=topTab>{{ tab.name }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div id=menu_wrapper class=page>
+            {% for item , sub_item in foot_pool.items %}
+                <div class=menu_container id="{{ item.url }}_menu">
+                    <a class=menu-links href="/{{ item.url }}" style="padding-left:40px;font-weight:bold;float:left;">{{ item.name }}</a>
+                    {% for i in sub_item%}
+                    <a class="menu-links" href="/{{ item.url}}/{{ i.url }}">{{ i.name }}</a>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+        {% block masthead %}{% endblock %}  
+
+        <div id="content_wrapper" class=wrapper>
+            <div id=content class=page>
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+        <div id="footer_wrapper" class=wrapper>
+            <div id=footer class=page>
+                <div id="footer-box-info">
+                    <img src="/site_media/im/ecell-icon.jpg"><img src="/site_media/im/kgp-logo.jpg">
+                     <a style="padding-left:20px;"
+                        href="mailto:info@ecell-iitkgp.org">Contact Us</a>
+                </div>
+
+                {% for item , sub_item in foot_pool.items %}
+                    <div id="footer-box">
+                        <a class="foot-list-head" href="/{{ item.url }}">{{ item.name }}</a>
+                        <ul class="foot-list">
+                            {% for i in sub_item %}
+                            <li class=sub_footer><a href="/{{ item.url }}/{{ i.url }}" class=foot-links>{{ i.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </body>
+</html>

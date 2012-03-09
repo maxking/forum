@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+    <head>
+      <title>Wiki </title>
+      
+      {% block head %}{% endblock %}
+    </head>
+    <body>
+      
+      {% if logged %}
+      <span class=user>{{ user }}</span>|
+      <a href="/account/logout" class=topTab>Logout</a>|<a href="/account/" class=topTab>Settings</a>
+      {% else %}
+      <a href="/account/" class=topTab>Login</a>|<a href="/account/signup" class=topTab>Register</a>
+      {% endif %}
+      <div id=tabs>
+	
+	{% block masthead %}{% endblock %}  
+	
+        <div id="content_wrapper" class=wrapper>
+          <div id=content class=page>
+            {% block content %}
+            {% endblock %}
+          </div>
+        </div>
+ 	
+      </div>
+
+    </body>
+</html>
