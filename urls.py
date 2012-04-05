@@ -9,7 +9,9 @@ from django.conf import settings
 urlpatterns = patterns('',
     (r'^$', home),
     (r'^account/',include('wiki.account.urls')),
-  # Examples:
+    (r'^upload/',include('wiki.upload.urls')), 
+    (r'^forum/',include('wiki.forum.urls')),                   
+                       # Examples:
     # url(r'^$', 'wiki.views.home', name='home'),
     # url(r'^wiki/', include('wiki.foo.urls')),
 

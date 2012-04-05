@@ -2,18 +2,18 @@ from django.forms.util import ErrorList
 from django.contrib.auth.models import User
 from django import forms 
 from wiki.account.choices import *
+from django.core.files import File
 
 class SignupForm(forms.Form):
     first_name=forms.CharField(max_length=25,label='First Name')
     last_name=forms.CharField(max_length=25,label='Last name')
-    email=forms.EmailField()
+    email=forms.EmailField(label='Email-Id')
     password1=forms.CharField(max_length=25, widget=forms.PasswordInput, label='Password')
     password2=forms.CharField(max_length=25, widget=forms.PasswordInput, label='Confirm Password')
     sex=forms.ChoiceField(choices=sex_choice)
     phno=forms.IntegerField(label='Phone Number')
     pin=forms.CharField(max_length=10)
     website=forms.URLField()
-#    image=forms.FileField(label='Display Image', help_text='maximum 3MB' upload_to=)
     def clean(self):
         data=self.cleaned_data
         try:
@@ -31,7 +31,7 @@ class SignupForm(forms.Form):
                 if username==user.username :
                     self._errors['username']=ErrorList(['Username already registered. Enter a different one.'])
                     del data['username']
-
+        
         except:
             pass
         return data
@@ -46,7 +46,14 @@ class LoginForm(forms.Form):
             email=data['email']
             user=User.objects.get( email = email )
         except Exception:
-            self._errors['email'] = ErorList(['Not registered. Please register.'])
+            self._errors['email'] = ErrorList(['Not registered. Please register.'])
         return data
 
+class AccountSettingsForm(forms.Form):
+    first_name = forms.CharField(max_length = 25, label = 'First Name')
+    last_name = forms.CharField(max_length = 25, label = 'Last Name')
+    sex = forms.ChoiceField(choices = sex_choice)
+    phno = forms.IntegerField(label = 'Phone Number')
+    pin = forms.CharField(max_length = 10)
+    website = forms.CharField(label = 'Website')
 
