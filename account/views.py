@@ -92,8 +92,8 @@ def logout(request):
     else:
         base_vars=get_base_vars(request)
 
-    base_vars.update({"message":"You are not authorised to be here"})
-    return render_to_response("message.html",base_vars)
+        base_vars.update({"message":"You are not authorised to be here"})
+        return render_to_response("message.html",base_vars)
 
         
 def home(request):

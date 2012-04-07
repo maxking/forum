@@ -8,9 +8,12 @@ from wiki.forum.views import *
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-#    (r'^$', forum_home),
+    (r'^$', forum_index),
     (r'^comments$',include('django.contrib.comments.urls')),
-    (r'^newpost$', newpost),                   
+    (r'^newpost$', newpost), 
+    (r'^post/(?P<post_id>\d+)/$',post_page),
+    (r'^post/delete/(?P<post_id>\d+)/$',delete_post),
+    (r'^post/(?P<post_id>\d+)/delete/comment/(?P<comment_id>\d+)/$',delete_comment),
                        # Examples:
     # url(r'^$', 'wiki.views.home', name='home'),
     # url(r'^wiki/', include('wiki.foo.urls')),
@@ -20,4 +23,4 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
-)+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+                       )+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -132,8 +132,9 @@ img.aligncenter {
 #page {
     display:block;
     width: 900px;
-    height: 500px;
+    height: auto;
     margin:auto;
+    padding : 10px;
     border: 1px solid white;
     background-color: #EEEEEE;
 }
@@ -231,4 +232,85 @@ span .topLogout {
     display:block;
     margin: 15px;
     font-size: 2.2em;
+}
+
+#posts {
+    border:1px solid #98BF21;
+    width: 80%;
+    margin: auto;
+    margin-top:50px;
+    padding: 5px;
+    border-collapse:collapse;
+    text-align: left;
+}
+
+#posts a {
+    text-decoration : None;
+    font-size : 1.2em;
+}
+
+#posts td {
+    border: 1px solid green;
+    background-color: #AAAAAA;
+    font-size : 1.2em;
+
+}
+
+#posts th{
+    background-color: #98BF21;
+    color: white;
+    font-size: 1.4em;
+}
+
+#posts a:hover {
+    color: blue;
+    text-decoration : None;
+}
+
+#newpost {
+    display: block;
+    margin: 10px;
+    color: #092E20;
+    font-size:1.4em;
+}
+
+.title {
+    display : block;
+    width : auto;
+    margin : 20px 0px 10px 0px;
+    height : 50px;
+    font-size : 2em;
+}
+
+.message {
+    display: block;
+    margin :auto;
+    margin-top:20px;
+    margin-bottom: 20px;
+    width : 370px;
+    text-align:justify;
+}
+
+#comments{
+    width : 370px;
+    border-collapse: collapse;
+    cellspacing : 10px;
+    maring-bottom:20px;
+}
+
+#comments td{
+    margin: 10px;
+    border-left: 5px solid blue;
+    padding: 10px;
+    
+}
+
+#commentform textarea {
+    resize:none;
+    cols:35;
+    rows:6
+}
+.user {
+    font-size : 1em;
+    color : #CCCCCC;
 }
