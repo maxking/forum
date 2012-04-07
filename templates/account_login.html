@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block head %}
+<title>Login</title>
+<style>
+.error{
+	font-size:8pt;
+	color:#dd0000;
+	font-family:sans;
+	background-color:#eecccc;
+	border-top:1px solid #dd0000;
+}
+</style>
+{% endblock %}
+{% block content %}
+<div align='center'>
+<form method=post action="/account/">
+<table width=430px class=login>
+	{% if bad %}
+	<tr><td colspan=2> Please enter a valid user name </td></tr>
+	{% endif %}
+        {% for element in login_form %}
+	    <tr><td  {% if element.errors %}class=error {% endif %}>{{ element.label_tag }}</td><td  {% if element.errors %}class=error {% endif %}>{{ element }}</td><td  {% if element.errors %}class=error {% endif %}>{{element.errors.as_text}}</td></tr>
+        {% endfor %}
+        <tr><td colspan=2><input type="submit" value="Login">&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" value="Clear"></td></tr>
+</table>
+</form>
+</div>
+{% endblock %}
